@@ -22,8 +22,8 @@ while 1:
     print('Ready to serve...')
     tcpCliSock, addr = tcpSerSock.accept()
     print('Received a connection from:', addr)
-    message = 'Received a connection from:' + addr#your code goes here
-    
+   
+    message = tcpCliSock.recv(2048).decode('utf-8')
     print(message)
 
     # Extract the filename from the given message
