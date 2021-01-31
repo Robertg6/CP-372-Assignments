@@ -12,7 +12,7 @@ if len(sys.argv) <= 1:
 # Create a server socket, bind it to a port and start listening
 tcpSerSock = socket(AF_INET, SOCK_STREAM)
 # Fill in start.
-PROXY_SERV = '127.0.0.1'
+PROXY_SERV = '127.0.0.1' 
 PROXY_PORT = 8888
 tcpSerSock.bind((PROXY_SERV,PROXY_PORT))
 tcpSerSock.listen(5)
