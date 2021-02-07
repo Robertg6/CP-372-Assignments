@@ -1,1 +1,256 @@
+To start we made the server act as a client and get the HTML source from a website
+When running:
+
+from socket import *
+
+with socket(AF_INET,SOCK_STREAM) as s:
+
+    s.connect(("example.com" , 80))
+    s.sendall(b"GET / HTTP/1.1\r\nHost: example.com\r\nAccept: text/html\r\n\r\n")
+    print(str(s.recv(4096), 'utf-8')) 
+
+Output(in order the webpages are: example.com, baidu.com, apache.org, mit.edu):
+-------------------------------------------------------------------------------------------------
+HTTP/1.1 200 OK
+
+Age: 489469
+
+Cache-Control: max-age=604800
+
+Content-Type: text/html; charset=UTF-8
+
+Date: Tue, 02 Feb 2021 01:14:29 GMT
+
+Etag: "3147526947+ident"
+
+Expires: Tue, 09 Feb 2021 01:14:29 GMT
+
+Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
+
+Server: ECS (ord/4CB8)
+
+Vary: Accept-Encoding
+
+X-Cache: HIT
+
+Content-Length: 1256
+
+
+
+<!doctype html>
+<html>
+<head>
+    <title>Example Domain</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type="text/css">
+    body {
+        background-color: #f0f0f2;
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        
+    }
+    div {
+        width: 600px;
+        margin: 5em auto;
+        padding: 2em;
+        background-color: #fdfdff;
+        border-radius: 0.5em;
+        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);
+    }
+    a:link, a:visited {
+        color: #38488f;
+        text-decoration: none;
+    }
+    @media (max-width: 700px) {
+        div {
+            margin: 0 auto;
+            width: auto;
+        }
+    }
+    </style>    
+</head>
+
+<body>
+<div>
+    <h1>Example Domain</h1>
+    <p>This domain is for use in illustrative examples in documents. You may use this
+    domain in literature without prior coordination or asking for permission.</p>
+    <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+</div>
+</body>
+</html>
+-------------------------------------------------------------------------------------------------
+HTTP/1.1 200 OK
+
+Accept-Ranges: bytes
+
+Cache-Control: no-cache
+
+Connection: keep-alive
+
+Content-Length: 14615
+
+Content-Type: text/html
+
+Date: Sun, 07 Feb 2021 23:04:20 GMT
+
+P3p: CP=" OTI DSP COR IVA OUR IND COM "
+
+P3p: CP=" OTI DSP COR IVA OUR IND COM "
+
+Pragma: no-cache
+
+Server: BWS/1.1
+
+Set-Cookie: BAIDUID=5B4B8599E2892BFC1C01C02FFB0B65A8:FG=1; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+
+Set-Cookie: BIDUPSID=5B4B8599E2892BFC1C01C02FFB0B65A8; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+
+Set-Cookie: PSTM=1612739060; expires=Thu, 31-Dec-37 23:55:55 GMT; max-age=2147483647; path=/; domain=.baidu.com
+
+Set-Cookie: BAIDUID=5B4B8599E2892BFC2013767E49CC7364:FG=1; max-age=31536000; expires=Mon, 07-Feb-22 23:04:20 GMT; domain=.baidu.com; path=/; version=1; comment=bd
+
+Traceid: 161273906006968752747577475276689802685
+
+Vary: Accept-Encoding
+
+X-Ua-Compatible: IE=Edge,chrome=1
+
+
+
+<!DOCTYPE html><!--STATUS OK-->
+
+<html>
+
+<head>
+
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+	<link rel="dns-prefetch" href="//s1.bdstatic.com"/>
+
+	<link rel="dns-prefetch" href="//t1.baidu.com"/>
+
+	<link rel="dns-prefetch" href="//t2.baidu.com"/>
+
+	<link rel="dns-prefetch" href="//t3.baidu.com"/>
+
+	<link rel="dns-prefetch" href="//t10.baidu.com"/>
+
+	<link rel="dns-prefetch" href="//t11.baidu.com"/>
+
+	<link rel="dns-prefetch" href="//t12.baidu.com"/>
+
+	<link rel="dns-prefetch" href="//b1.bdstatic.com"/>
+
+	<title>百度一下，你就知道</title>
+
+	<link href="http://s1.bdstatic.com/r/www/cache/static/home/css/index.css" rel="stylesheet" type="text/css" />
+
+	<!--[if lte IE 8]><style index="index" >#content{height:480px\9}#m{top:260px\9}</style><![endif]-->
+
+	<!--[if IE 8]><style index="index" >#u1 a.mnav,#u1 a.mnav:visited{font-family:simsun}</style><![endif]-->
+
+	<script>var hashMatch = document.location.href.match(/#+(.*wd=[^&].+)/);if (hashMatch && hashMatch[0] && hashMatch[1]) {document.location.replace("http://"+location.host+"/s?"+hashMatch[1]);}var ns_c = function(){};</script>
+
+	<script>function h(obj){obj.style.behavior='url(#default#homepage)';var a = obj.setHomePage('//www.baidu.com/');}</script>
+
+	<noscript><meta http-equiv="refresh" content="0; url=/baidu.html?from=noscript"/></noscript>
+
+	<script>window._ASYNC_START=new Date().getTime();</script>
+
+</head>
+
+<body link="#0000cc"><div id="wrapper" style="display:none;"><div id="u"><a href="//www.baidu.com/gaoji/preferences.html"  onmousedown="return user_c({'fm':'set','tab':'setting','login':'0'})">搜索设置</a>|<a id="btop" href="/"  onmousedown="return user_c({'fm':'set','tab':'index','login':'0'})">百度首页</a>|<a id="lb" href="https://passport.baidu.com/v2/?login&tpl=mn&u=http%3A%2F%2Fwww.baidu.com%2F" onclick="return false;"  onmousedo
+-------------------------------------------------------------------------------------------------
+HTTP/1.1 200 OK
+
+Date: Sun, 07 Feb 2021 23:07:01 GMT
+
+Server: Apache
+
+Last-Modified: Sun, 07 Feb 2021 22:10:21 GMT
+
+ETag: "14fa8-5bac651c36fd8"
+
+Accept-Ranges: bytes
+
+Content-Length: 85928
+
+Cache-Control: max-age=3600
+
+Expires: Mon, 08 Feb 2021 00:07:01 GMT
+
+Vary: Accept-Encoding
+
+Content-Type: text/html
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Home page of The Apache Software Foundation">
+  
+  <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicons/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/favicons/manifest.json">
+  <link rel="shortcut icon" href="/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#603cba">
+  <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+  <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#282661">
+
+  <title>Welcome to The Apache Software Foundation!</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,600" rel="stylesheet">
+  <link href="/css/min.bootstrap.css" rel="stylesheet">
+  <link href="/css/styles.css" rel="stylesheet">
+  
+
+  
+
+</head>
+
+<body id="home">
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar navbar-inverse navbar-fixed-top mainmenu">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#mainnav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+-------------------------------------------------------------------------------------------------
+HTTP/1.1 301 Moved Permanently
+
+Server: AkamaiGHost
+
+Content-Length: 0
+
+Location: https://www.mit.edu/
+
+Date: Sun, 07 Feb 2021 23:08:26 GMT
+
+Connection: keep-alive
+-------------------------------------------------------------------------------------------------
 
