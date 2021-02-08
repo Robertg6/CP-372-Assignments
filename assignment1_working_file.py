@@ -6,23 +6,35 @@ if len(sys.argv) <= 1:
     sys.exit(2)
     
     #your code goes here
+    
+else 
+    PROXY_PORT = sys.argv[1]
 
+#what is this used for? I think we need to get rid of serverPort variable
 serverPort = 8888
 
 # Create a server socket, bind it to a port and start listening
 tcpSerSock = socket(AF_INET, SOCK_STREAM)
 #your code goes here
+#the address of the proxy server is the localhost address
 PROXY_SERV = '127.0.0.1' 
+
+#we can't be hard coding the proxy port number. This needs to be the value of sys.argv[1] (as I added at line 10)
 PROXY_PORT = 8888
-tcpSerSock.bind((PROXY_SERV,PROXY_PORT))
+
+#assign the local TCP protocol address (PROXY_SERV) to the socket 
+tcpSerSock.bind((PROXY_SERV, PROXY_PORT))
+#mark the socket as accepting incoming connection requests
 tcpSerSock.listen(1)
 
 
 while 1:
     # Strat receiving data from the client
     print('Ready to serve...')
+    #all connections to the socket should be accepted
     tcpCliSock, addr = tcpSerSock.accept()
     print('Received a connection from:', addr)
+    #receive and decode the request message
     message = tcpCliSock.recv(50000).decode('utf-8')
     
     print('=======TCP Client recieved=======')
@@ -60,6 +72,7 @@ while 1:
             # Create a socket on the proxyserver
             c = socket(AF_INET,SOCK_STREAM)
 
+            #the hostn (host name) is the filename without the 'www.'
             hostn = filename.replace("www.","",1)
             print("Hostname = ", hostn)
             
@@ -83,7 +96,7 @@ while 1:
                 #and the corresponding file in the cache
                 tmpFile = open("./" + filename,"wb")
 
-            
+                #send the response in the buffer to the client socket and also write it to the file in cache
                 for i in range(0, len(responseBuffer)):
                     tmpFile.write(responseBuffer[i])
                     tcpCliSock.send(responseBuffer[i])
