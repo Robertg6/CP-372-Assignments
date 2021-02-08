@@ -37,7 +37,7 @@ while 1:
     #receive and decode the request message
     message = tcpCliSock.recv(50000).decode('utf-8')
     
-    print('=======TCP Client recieved=======')
+    print('=======Client Recieved Message=======')
     
     print(message)
 
@@ -61,7 +61,7 @@ while 1:
         tcpCliSock.send(("Content-Type:text/html\r\n").encode('utf-8'))
 
 
-        print('---file found in cache---', outputdata)
+        print('Cache Hit', outputdata)
         
         tcpCliSock.send(outputdata.encode('utf-8'))
         #your code goes here
@@ -71,7 +71,7 @@ while 1:
     # Error handling for file not found in cache
     except IOError:
         if fileExist == "false":
-            print('--------This web page was not found in the proxy cache-------')
+            print('This web page was not found in the proxy cache')
             # Create a socket on the proxyserver
             c = socket(AF_INET,SOCK_STREAM)
 
@@ -82,7 +82,7 @@ while 1:
             try:
                 # Connect to port 80 on server
                 c.connect((hostn,80))
-                print("Successful connection with " + hostn)
+                print("Cnnection with " + hostn + ": SUCCESS!")
 
                 # Create a temporary file on this socket and ask port 80
                 #for the file requested by the client
@@ -91,7 +91,7 @@ while 1:
 
                 # Read the response into buffer
                 #your code goes here
-                responseBuffer = fileobj.readlines()
+                responseBuff = fileobj.readlines()
                 
                 # Create a new file in the cache for the requested file.
 
@@ -100,13 +100,14 @@ while 1:
                 tmpFile = open("./" + filename,"wb")
 
                 #send the response in the buffer to the client socket and also write it to the file in cache
-                for i in range(0, len(responseBuffer)):
-                    tmpFile.write(responseBuffer[i])
-                    tcpCliSock.send(responseBuffer[i])
+                for i in range(0, len(responseBuff)):
+                    tcpCliSock.send(responseBuff[i])
+                    tmpFile.write(responseBuff[i])
+                    
 
             except error as e :  
                 print(e)
-                print("Error 400: Bad Request")
+                print("Error 400: Illegal Request")
         else:
             # HTTP response message for file not found
             # Fill in start.
