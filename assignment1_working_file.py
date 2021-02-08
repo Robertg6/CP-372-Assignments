@@ -1,10 +1,10 @@
 from socket import *
 import sys
 
-'''if len(sys.argv) <= 1:
+if len(sys.argv) <= 1:
     print('Usage : python proxy.py server_port\n')
     sys.exit(2)
-'''
+    
     #your code goes here
 
 serverPort = 8888
