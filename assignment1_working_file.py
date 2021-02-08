@@ -38,6 +38,8 @@ while 1:
     message = tcpCliSock.recv(50000).decode('utf-8')
     
     print('=======TCP Client recieved=======')
+    
+    print(message)
 
     # Extract the filename from the given message
     print(message.split()[1])
@@ -50,6 +52,7 @@ while 1:
     try:
         print("Checkking to see if file exists")
         f = open(filetouse[1:], "r")
+        #masoomeh's code is f.readlines(). Should we change this?
         outputdata = f.read()
         fileExist = "true"
         
@@ -58,7 +61,7 @@ while 1:
         tcpCliSock.send(("Content-Type:text/html\r\n").encode('utf-8'))
 
 
-        print('---file found in cache---',outputdata)
+        print('---file found in cache---', outputdata)
         
         tcpCliSock.send(outputdata.encode('utf-8'))
         #your code goes here
@@ -68,18 +71,18 @@ while 1:
     # Error handling for file not found in cache
     except IOError:
         if fileExist == "false":
-            print('web page does not exist in proxy cache!')
+            print('--------This web page was not found in the proxy cache-------')
             # Create a socket on the proxyserver
             c = socket(AF_INET,SOCK_STREAM)
 
             #the hostn (host name) is the filename without the 'www.'
             hostn = filename.replace("www.","",1)
-            print("Hostname = ", hostn)
+            print("hostname = ", hostn)
             
             try:
                 # Connect to port 80 on server
                 c.connect((hostn,80))
-                print("Connection with " + hostn + " succesful")
+                print("Successful connection with " + hostn)
 
                 # Create a temporary file on this socket and ask port 80
                 #for the file requested by the client
