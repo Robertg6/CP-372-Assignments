@@ -75,7 +75,6 @@ while 1:
 
                 # Read the response into buffer
                 #your code goes here
-                print('line 77')
                 responseBuffer = fileobj.readlines()
                 
                 # Create a new file in the cache for the requested file.
@@ -91,11 +90,11 @@ while 1:
 
             except error as e :  
                 print(e)
-                print("Illegal request")
+                print("Error 400: Bad Request")
         else:
             # HTTP response message for file not found
             # Fill in start.
-            print('404 not found')
+            print('Error 404: Not Found')
             # Fill in end.
     
             # Close the client and the server sockets
