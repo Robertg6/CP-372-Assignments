@@ -254,3 +254,45 @@ Date: Sun, 07 Feb 2021 23:08:26 GMT
 Connection: keep-alive
 -------------------------------------------------------------------------------------------------
 
+How to Run the Proxy:
+
+The proxy is run by running  the proxy.py file through command prompt, eclipse, Python Shell, ect., and giving the proxy port number as an argument.
+
+Once running, the user can send a request to the proxy in one of two ways:
+ 
+1. Direct the requests to the proxy server using the IP address and port number of the proxy. For example, if the proxy is running on port 8888, the request to http://www.example.com should be entered into the browser address bar as http://localhost:8888/www.example.com
+ 
+2. Directly configure the web browser to use the proxy. Regardless of the browser used, the user must give the address of the proxy and the port number used to run the proxy server. Then, the user can simply provide the URL of the page they want. For example: http://www.example.com
+
+-------------------------------------------------------------------------------------------------
+
+Design Decisions Regarding Error Handling:
+ 
+Our proxy handles 400 and 404 errors by simply displaying either “Error 400: Bad Request” or “Error 404: Not Found” so that the user knows why the requested page wasn’t loaded. 
+ 
+Other errors, including 301, 302, and 500 are dealt with by displaying the appropriate error page in the browser for the user to see.
+ 
+Our proxy recovers from errors by simply asking for the user to make a new request by displaying the prompt “ready to serve…”.
+ 
+We decided to design our error handling this way because we wanted the user to be able to quickly see what went wrong and then move on from the error. By displaying either an error page or a single line in the console and allowing them to send a new request immediately, the user doesn’t have to waste time reading an unnecessary explanation or completely re-starting the proxy.
+
+-------------------------------------------------------------------------------------------------
+
+Design Decisions Regarding Caching:
+ 
+When the proxy gets a request, it checks if the requested object is cached. If it is cached, it returns the object from the cache, without contacting the server. If the object is not cached, the proxy retrieves the object from the server, returns it to the client, and caches a copy for future requests.
+ 
+The cache is in the form of binary files, each named after the domain of said cached object. All cache files are stored in a folder called “cache” which is created under the same path as wherever the user saves our proxy.py program. 
+ 
+We chose to design our cache file system this way because we knew that following this naming convention, our proxy would naturally meet the requirements of not including ‘/’ in file names and ensuring file names do not exceed 255 characters.
+ 
+Also, it will be easy for the user to locate the cache files in their file system so long as they know the location of our proxy.py file.
+
+
+-------------------------------------------------------------------------------------------------
+First 20 Lines of response from different URLs:
+---
+example.com:
+
+
+
