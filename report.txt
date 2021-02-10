@@ -294,5 +294,261 @@ First 20 Lines of response from different URLs:
 ---
 example.com:
 
+GET /www.example.com HTTP/1.1
+
+Host: localhost:8888
+
+Connection: keep-alive
+
+Upgrade-Insecure-Requests: 1
+
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+Sec-Fetch-Site: none
+
+Sec-Fetch-Mode: navigate
+
+Sec-Fetch-User: ?1
+
+Sec-Fetch-Dest: document
+
+Accept-Encoding: gzip, deflate, br
+
+Accept-Language: en-US,en;q=0.9
+
+
+
+
+/www.example.com
+www.example.com
+/www.example.com
+Checkking to see if file exists
+This web page was not found in the proxy cache
+hostname =  example.com
+Cnnection with example.com: SUCCESS!
+Ready to serve...
+Received a connection from: ('127.0.0.1', 60590)
+=======Client Recieved Message=======
+GET /favicon.ico HTTP/1.1
+
+Host: localhost:8888
+
+Connection: keep-alive
+
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63
+
+Accept: image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+
+Sec-Fetch-Site: same-origin
+
+Sec-Fetch-Mode: no-cors
+
+Sec-Fetch-Dest: image
+
+Referer: http://localhost:8888/www.example.com
+
+Accept-Encoding: gzip, deflate, br
+
+Accept-Language: en-US,en;q=0.9
+
+
+
+
+/favicon.ico
+favicon.ico
+/favicon.ico
+Checkking to see if file exists
+This web page was not found in the proxy cache
+hostname =  favicon.ico
+[Errno 11001] getaddrinfo failed
+Error 400: Illegal Request
+---
+www.baidu.com
+
+GET /www.baidu.com HTTP/1.1
+
+Host: localhost:8888
+
+Connection: keep-alive
+
+Upgrade-Insecure-Requests: 1
+
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+Sec-Fetch-Site: none
+
+Sec-Fetch-Mode: navigate
+
+Sec-Fetch-User: ?1
+
+Sec-Fetch-Dest: document
+
+Accept-Encoding: gzip, deflate, br
+
+Accept-Language: en-US,en;q=0.9
+
+
+
+
+/www.baidu.com
+www.baidu.com
+/www.baidu.com
+Checkking to see if file exists
+This web page was not found in the proxy cache
+hostname =  baidu.com
+Cnnection with baidu.com: SUCCESS!
+Ready to serve...
+Received a connection from: ('127.0.0.1', 60664)
+---
+www.nature.com
+
+GET /www.nature.com HTTP/1.1
+
+Host: localhost:8888
+
+Connection: keep-alive
+
+Upgrade-Insecure-Requests: 1
+
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+Sec-Fetch-Site: none
+
+Sec-Fetch-Mode: navigate
+
+Sec-Fetch-User: ?1
+
+Sec-Fetch-Dest: document
+
+Accept-Encoding: gzip, deflate, br
+
+Accept-Language: en-US,en;q=0.9
+
+
+
+
+/www.nature.com
+www.nature.com
+/www.nature.com
+Checkking to see if file exists
+---
+www.washington.edu
+
+GET /www.washington.edu HTTP/1.1
+
+Host: localhost:8888
+
+Connection: keep-alive
+
+Upgrade-Insecure-Requests: 1
+
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+Sec-Fetch-Site: none
+
+Sec-Fetch-Mode: navigate
+
+Sec-Fetch-User: ?1
+
+Sec-Fetch-Dest: document
+
+Accept-Encoding: gzip, deflate, br
+
+Accept-Language: en-US,en;q=0.9
+
+
+
+
+/www.washington.edu
+www.washington.edu
+/www.washington.edu
+Checkking to see if file exists
+This web page was not found in the proxy cache
+hostname =  washington.edu
+---
+www.mit.edu
+
+GET /www.mit.edu HTTP/1.1
+
+Host: localhost:8888
+
+Connection: keep-alive
+
+Upgrade-Insecure-Requests: 1
+
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+Sec-Fetch-Site: none
+
+Sec-Fetch-Mode: navigate
+
+Sec-Fetch-User: ?1
+
+Sec-Fetch-Dest: document
+
+Accept-Encoding: gzip, deflate, br
+
+Accept-Language: en-US,en;q=0.9
+
+Cookie: _ga=GA1.1.1073007808.1613001458; _gid=GA1.1.1470937423.1613001458; _gat_UA-158897013-1=1; _gat_UA-15747328-1=1; nmstat=6ab95288-0baa-14c3-fcdb-5a7d2cee58bb; _mkto_trk=id:131-AQO-225&token:_mch-localhost-1613001459658-79377
+
+
+
+
+/www.mit.edu
+www.mit.edu
+/www.mit.edu
+---
+www.apache.org
+
+GET /www.apache.org HTTP/1.1
+
+Host: localhost:8888
+
+Connection: keep-alive
+
+Upgrade-Insecure-Requests: 1
+
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36 Edg/88.0.705.63
+
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+
+Sec-Fetch-Site: none
+
+Sec-Fetch-Mode: navigate
+
+Sec-Fetch-User: ?1
+
+Sec-Fetch-Dest: document
+
+Accept-Encoding: gzip, deflate, br
+
+Accept-Language: en-US,en;q=0.9
+
+Cookie: _ga=GA1.1.1073007808.1613001458; _gid=GA1.1.1470937423.1613001458; nmstat=6ab95288-0baa-14c3-fcdb-5a7d2cee58bb; _mkto_trk=id:131-AQO-225&token:_mch-localhost-1613001459658-79377
+
+
+
+
+/www.apache.org
+www.apache.org
+/www.apache.org
+Checkking to see if file exists
+This web page was not found in the proxy cache
+hostname =  apache.org
+Cnnection with apache.org: SUCCESS!
+---
+END
+
 
 
