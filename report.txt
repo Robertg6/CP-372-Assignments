@@ -1,3 +1,7 @@
+Author(s): Janelle Tait, Robert Goss
+Student_id: tait7860,goss7390
+
+
 To start we made the server act as a client and get the HTML source from a website
 When running:
 
